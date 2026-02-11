@@ -1,3 +1,5 @@
+import { getImagePath } from '../utils/imagePaths';
+
 export interface Car {
     id: string;
     name: string;
@@ -16,12 +18,12 @@ export const cars: Car[] = [
         name: 'Swift Dzire',
         type: 'Sedan',
         pricePerKm: 10,
-        coverImage: '/images/cars/swift-dzire-cover.jpg',
-        image: '/images/cars/swift-dzire-1.jpg',
+        coverImage: getImagePath('/images/cars/swift-dzire-cover.jpg'),
+        image: getImagePath('/images/cars/swift-dzire-1.jpg'),
         images: [
-            '/images/cars/swift-dzire-1.jpg',
-            '/images/cars/swift-dzire-2.jpg',
-            '/images/cars/swift-dzire-3.jpg'
+            getImagePath('/images/cars/swift-dzire-1.jpg'),
+            getImagePath('/images/cars/swift-dzire-2.jpg'),
+            getImagePath('/images/cars/swift-dzire-3.jpg')
         ],
         features: ['AC', '4 Seater', 'Music System', 'Comfortable Legroom'],
         description: 'The Swift Dzire is a perfect blend of style and comfort, ideal for small families and business trips.',
@@ -31,12 +33,12 @@ export const cars: Car[] = [
         name: 'Toyota Innova',
         type: 'SUV',
         pricePerKm: 15,
-        coverImage: '/images/cars/innova-cover.jpg',
-        image: '/images/cars/innova-1.jpg',
+        coverImage: getImagePath('/images/cars/innova-cover.jpg'),
+        image: getImagePath('/images/cars/innova-1.jpg'),
         images: [
-            '/images/cars/innova-1.jpg',
-            '/images/cars/innova-2.jpg',
-            '/images/cars/innova-3.jpg'
+            getImagePath('/images/cars/innova-1.jpg'),
+            getImagePath('/images/cars/innova-2.jpg'),
+            getImagePath('/images/cars/innova-3.jpg')
         ],
         features: ['AC', '7 Seater', 'Ample Boot Space', 'High Comfort'],
         description: 'Toyota Innova offers a spacious and comfortable ride, making it the best choice for long distance travel with family.',
@@ -46,11 +48,11 @@ export const cars: Car[] = [
         name: 'Innova Crysta',
         type: 'Premium SUV',
         pricePerKm: 16,
-        coverImage: '/images/cars/innova-crysta-cover.jpg',
-        image: '/images/cars/innova-crysta-1.jpg',
+        coverImage: getImagePath('/images/cars/innova-crysta-cover.jpg'),
+        image: getImagePath('/images/cars/innova-crysta-1.jpg'),
         images: [
-            '/images/cars/innova-crysta-1.jpg',
-            '/images/cars/innova-crysta-2.jpg'
+            getImagePath('/images/cars/innova-crysta-1.jpg'),
+            getImagePath('/images/cars/innova-crysta-2.jpg')
         ],
         features: ['AC', '7 Seater', 'Premium Interiors', 'GPS Navigation', 'Airbags'],
         description: 'Experience luxury with the Innova Crysta. Known for its premium interiors and superior ride quality.',
@@ -60,11 +62,11 @@ export const cars: Car[] = [
         name: 'Honda City',
         type: 'Premium Sedan',
         pricePerKm: 15,
-        coverImage: '/images/cars/honda-city-cover.jpg',
-        image: '/images/cars/honda-city-1.jpg',
+        coverImage: getImagePath('/images/cars/honda-city-cover.jpg'),
+        image: getImagePath('/images/cars/honda-city-1.jpg'),
         images: [
-            '/images/cars/honda-city-1.jpg',
-            '/images/cars/honda-city-2.jpg'
+            getImagePath('/images/cars/honda-city-1.jpg'),
+            getImagePath('/images/cars/honda-city-2.jpg')
         ],
         features: ['AC', '5 Seater', 'Luxury Interiors', 'Smooth Drive'],
         description: 'Honda City defines premium comfort and style. Perfect for weddings and corporate travel.',
@@ -74,11 +76,11 @@ export const cars: Car[] = [
         name: 'Toyota Etios',
         type: 'Sedan',
         pricePerKm: 11, // Estimated
-        coverImage: '/images/cars/etios-cover.jpg',
-        image: '/images/cars/etios-1.jpg',
+        coverImage: getImagePath('/images/cars/etios-cover.jpg'),
+        image: getImagePath('/images/cars/etios-1.jpg'),
         images: [
-            '/images/cars/etios-1.jpg',
-            '/images/cars/etios-2.jpg'
+            getImagePath('/images/cars/etios-1.jpg'),
+            getImagePath('/images/cars/etios-2.jpg')
         ],
         features: ['AC', '4 Seater', 'Spacious Boot', 'Economy'],
         description: 'Toyota Etios is known for its reliability and spacious cabin, great for city and outstation trips.',
@@ -88,11 +90,11 @@ export const cars: Car[] = [
         name: 'Force Traveller / Winger', // Assuming "van" implies this or similar
         type: 'Van',
         pricePerKm: 22, // Estimated
-        coverImage: '/images/cars/force-cover.jpg',
-        image: '/images/cars/traveller-1.jpg',
+        coverImage: getImagePath('/images/cars/force-cover.jpg'),
+        image: getImagePath('/images/cars/traveller-1.jpg'),
         images: [
-            '/images/cars/traveller-1.jpg',
-            '/images/cars/traveller-2.jpg'
+            getImagePath('/images/cars/traveller-1.jpg'),
+            getImagePath('/images/cars/traveller-2.jpg')
         ],
         features: ['AC', '12+ Seater', 'Pushback Seats', 'Group Travel'],
         description: 'Ideal for large groups and pilgrimages. Travel together with comfort.',

@@ -1,3 +1,5 @@
+import { getImagePath } from '../utils/imagePaths';
+
 export interface Package {
     id: string;
     name: string;
@@ -21,9 +23,9 @@ export const packages: Package[] = [
         name: 'Daringbadi & Gopalpur Tour',
         duration: '2 Nights / 3 Days',
         price: 'On Request',
-        image: '/images/tours/daringbadi-2n3d.jpg',
+        image: getImagePath('/images/tours/daringbadi-2n3d.jpg'),
         images: [
-            '/images/tours/daringbadi-2n3d.jpg',
+            getImagePath('/images/tours/daringbadi-2n3d.jpg'),
             'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Nature placeholder
             'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Beach placeholder
         ],
@@ -82,9 +84,9 @@ export const packages: Package[] = [
         name: 'Daringbadi & Gopalpur Tour (Extended)',
         duration: '3 Nights / 4 Days',
         price: 'On Request',
-        image: '/images/tours/daringbadi-3n4d.jpg',
+        image: getImagePath('/images/tours/daringbadi-3n4d.jpg'),
         images: [
-            '/images/tours/daringbadi-3n4d.jpg',
+            getImagePath('/images/tours/daringbadi-3n4d.jpg'),
             'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Nature placeholder
             'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Landscape placeholder
         ],
