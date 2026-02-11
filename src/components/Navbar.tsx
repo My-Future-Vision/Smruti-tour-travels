@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 import { getWhatsAppLink } from '../utils/whatsapp';
+import { getImagePath } from '../utils/imagePaths';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ const Navbar: React.FC = () => {
                 <div className="flex justify-between items-center h-20">
                     {/* Logo Section */}
                     <Link to="/" className="flex-shrink-0 flex items-center gap-3 group">
-                        <img src="/images/logo.png" alt="SMRUTI TOUR & TRAVELS" className="h-14 w-auto object-contain bg-white rounded-lg p-1 shadow-lg transition-transform group-hover:scale-105" />
+                        <img src={getImagePath('/images/logo.png')} alt="SMRUTI TOUR & TRAVELS" className="h-14 w-auto object-contain bg-white rounded-lg p-1 shadow-lg transition-transform group-hover:scale-105" />
                         <span className={`text-2xl font-bold tracking-tight ${isHome && !isOpen ? 'text-white' : 'text-blue-600'} hidden lg:block`}>
                             SMRUTI TOUR & TRAVELS
                         </span>
