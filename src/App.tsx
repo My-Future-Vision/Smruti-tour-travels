@@ -11,7 +11,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Smruti-tour-travels">
       <ScrollToTop />
       <Layout>
         <Routes>
