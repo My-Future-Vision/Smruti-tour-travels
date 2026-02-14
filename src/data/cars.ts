@@ -85,6 +85,7 @@ export const cars: Car[] = [
         features: ['AC', '4 Seater', 'Spacious Boot', 'Economy'],
         description: 'Toyota Etios is known for its reliability and spacious cabin, great for city and outstation trips.',
     },
+    /*
     {
         id: 'van',
         name: 'Force Traveller / Winger', // Assuming "van" implies this or similar
@@ -99,4 +100,5 @@ export const cars: Car[] = [
         features: ['AC', '12+ Seater', 'Pushback Seats', 'Group Travel'],
         description: 'Ideal for large groups and pilgrimages. Travel together with comfort.',
     },
+    */
 ];

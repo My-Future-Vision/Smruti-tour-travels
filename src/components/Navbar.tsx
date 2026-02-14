@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, MessageCircle, Sun, Moon } from 'lucide-react';
 import { getWhatsAppLink } from '../utils/whatsapp';
-import { getImagePath } from '../utils/imagePaths';
+import { useTheme } from '../context/ThemeContext';
+
+import Button from './Button';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
+    const { theme, toggleTheme } = useTheme();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -16,54 +28,70 @@ const Navbar: React.FC = () => {
     ];
 
     const isHome = location.pathname === '/';
-    const headerClass = isHome && !isOpen
-        ? 'bg-black/40 backdrop-blur-md border-b border-white/10 text-white'
-        : 'bg-white/90 backdrop-blur-md shadow-md text-gray-900';
+    const headerClass = isHome && !scrolled && !isOpen
+        ? 'bg-transparent text-antigravity-white py-4'
+        : 'bg-antigravity-deep/80 backdrop-blur-md shadow-lg border-b border-antigravity-white/10 text-antigravity-white py-2';
+
+    const linkClass = (path: string) => {
+        const isActive = location.pathname === path;
+        const base = "relative px-3 py-2 rounded-full text-sm font-medium transition-all duration-300";
+
+        if (isHome && !scrolled && !isOpen) {
+            return isActive
+                ? `${base} bg-antigravity-cyan/10 text-antigravity-cyan border border-antigravity-cyan/20`
+                : `${base} text-antigravity-white/80 hover:bg-antigravity-white/5 hover:text-antigravity-white`;
+        }
+
+        return isActive
+            ? `${base} bg-antigravity-cyan/10 text-antigravity-cyan border border-antigravity-cyan/20`
+            : `${base} text-antigravity-white/70 hover:text-antigravity-cyan hover:bg-antigravity-cyan/5`;
+    };
 
     return (
         <nav className={`fixed w-full z-50 transition-all duration-300 ${headerClass}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-20">
+                <div className="flex justify-between items-center h-16">
                     {/* Logo Section */}
-                    <Link to="/" className="flex-shrink-0 flex items-center gap-3 group">
-                        <img src={getImagePath('/images/logo.png')} alt="SMRUTI TOUR & TRAVELS" className="h-14 w-auto object-contain bg-white rounded-lg p-1 shadow-lg transition-transform group-hover:scale-105" />
-                        <span className={`text-2xl font-bold tracking-tight ${isHome && !isOpen ? 'text-white' : 'text-blue-600'} hidden lg:block`}>
+                    <Link to="/" className="flex-shrink-0 flex items-center gap-2">
+                        <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${isHome && !scrolled && !isOpen ? 'text-antigravity-white' : 'text-antigravity-cyan'}`}>
                             SMRUTI TOUR & TRAVELS
                         </span>
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex space-x-8 items-center">
+                    <div className="hidden md:flex space-x-1 items-center">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 to={link.path}
-                                className={`relative font-medium transition-colors ${location.pathname === link.path
-                                    ? (isHome && !isOpen ? 'text-blue-400' : 'text-blue-600')
-                                    : (isHome && !isOpen ? 'text-gray-100 hover:text-white' : 'text-gray-600 hover:text-blue-600')
-                                    }`}
+                                className={linkClass(link.path)}
                             >
                                 {link.name}
-                                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 ${isHome && !isOpen ? 'bg-blue-400' : 'bg-blue-600'
-                                    } ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full hover:w-full'}`}></span>
                             </Link>
                         ))}
-                        <a
-                            href={getWhatsAppLink('Hi, I would like to book a car.')}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-blue-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40 hover:-translate-y-0.5 flex items-center gap-2"
-                        >
-                            <MessageCircle size={18} />
-                            Book Now
-                        </a>
+
+
+
+                        <div className="ml-4">
+                            <Button
+                                href={getWhatsAppLink('Hi, I would like to book a car.')}
+                                variant={isHome && !scrolled && !isOpen ? "glass" : "primary"}
+                                size="sm"
+                                className="gap-2"
+                            >
+                                <MessageCircle size={16} />
+                                Book Now
+                            </Button>
+                        </div>
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center">
+                    {/* Mobile Controls */}
+                    <div className="md:hidden flex items-center gap-2">
+
+
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className={`${isHome && !isOpen ? 'text-white' : 'text-gray-700'} hover:text-blue-600 focus:outline-none p-2 transition-colors`}
+                            className={`p-2 rounded-lg transition-colors ${isHome && !scrolled && !isOpen ? 'text-antigravity-white hover:bg-white/10' : 'text-antigravity-dust hover:bg-antigravity-cyan/10 hover:text-antigravity-cyan'}`}
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
@@ -73,29 +101,30 @@ const Navbar: React.FC = () => {
 
             {/* Mobile Menu Dropdown */}
             {isOpen && (
-                <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 shadow-xl absolute w-full left-0">
-                    <div className="px-4 pt-2 pb-6 space-y-2">
+                <div className="md:hidden bg-antigravity-deep/95 backdrop-blur-xl border-t border-white/10 shadow-xl absolute w-full left-0 animate-slide-up h-screen">
+                    <div className="px-4 pt-4 pb-6 space-y-2">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 to={link.path}
                                 onClick={() => setIsOpen(false)}
                                 className={`block px-4 py-3 rounded-xl text-base font-medium transition-all ${location.pathname === link.path
-                                    ? 'text-blue-600 bg-blue-50/80 pl-6'
-                                    : 'text-gray-700 hover:bg-gray-50 hover:pl-6'
+                                    ? 'text-antigravity-cyan bg-antigravity-cyan/10 pl-6 border-l-2 border-antigravity-cyan'
+                                    : 'text-antigravity-white/80 hover:bg-white/5 hover:text-antigravity-white hover:pl-6'
                                     }`}
                             >
                                 {link.name}
                             </Link>
                         ))}
-                        <a
-                            href={getWhatsAppLink('Hi, I need assistance with booking.')}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block w-full text-center bg-green-600 text-white px-4 py-3.5 rounded-xl font-medium shadow-lg shadow-green-500/20 active:scale-95 transition-all mt-4 flex items-center justify-center gap-2"
-                        >
-                            <MessageCircle size={18} /> Chat on WhatsApp
-                        </a>
+                        <div className="pt-4 border-t border-white/5 mt-2">
+                            <Button
+                                href={getWhatsAppLink('Hi, I need assistance with booking.')}
+                                variant="primary"
+                                className="w-full gap-2 justify-center"
+                            >
+                                <MessageCircle size={18} /> Chat on WhatsApp
+                            </Button>
+                        </div>
                     </div>
                 </div>
             )}
