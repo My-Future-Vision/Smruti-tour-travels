@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Antigravity v2 Dark Mode Variables (Default) */
+    --color-antigravity-deep: 230 25% 8%;
+    /* #0D1117 Deep Space */
+    --color-antigravity-white: 220 20% 93%;
+    /* #E8ECF1 Off-white */
+    --color-antigravity-cyan: 185 100% 50%;
+    /* #00D4FF Electric Cyan */
+    --color-antigravity-violet: 265 70% 60%;
+    /* #8B5CF6 Violet */
+    --color-antigravity-nebula: 225 25% 12%;
+    /* #161B26 Card Surface */
+    --color-antigravity-dust: 215 15% 55%;
+    /* #7A8BA0 Muted Text */
+    --color-antigravity-orange: 38 92% 50%;
+    /* #F59E0B Warning */
+    --color-antigravity-green: 160 84% 39%;
+    /* #10B981 Success */
+  }
+
+  body {
+    @apply antialiased text-antigravity-white bg-antigravity-deep font-sans selection:bg-antigravity-cyan selection:text-antigravity-deep transition-colors duration-300;
+
+    /* Deep Space Gradient with subtle center glow */
+    background:
+      radial-gradient(circle at 50% 0%, hsla(185, 100%, 50%, 0.05) 0%, transparent 50%),
+      linear-gradient(to bottom, hsl(230, 25%, 8%), hsl(225, 25%, 12%));
+    background-attachment: fixed;
+  }
+
+  /* Utility class for Glass Cards */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/60 rounded-2xl shadow-lg;
+  }
+
+  .dark .glass-card {
+    background-color: hsla(225, 25%, 12%, 0.6);
+    border-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+  }
+
+  /* Typography Utilities */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
