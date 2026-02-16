@@ -4,6 +4,7 @@ import { cars } from '../data/cars';
 import { packages } from '../data/packages';
 import { getWhatsAppLink } from '../utils/whatsapp';
 import Button from '../components/Button';
+import TestimonialsSection from '../components/TestimonialsSection';
 
 const Home: React.FC = () => {
     return (
@@ -210,6 +211,8 @@ const Home: React.FC = () => {
                     </div>
                 </div>
             </div>
+            {/* Testimonials Section */}
+            <TestimonialsSection />
         </div>
     );
 };
