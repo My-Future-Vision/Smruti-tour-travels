@@ -43,16 +43,16 @@ const CarDetails: React.FC = () => {
     };
 
     return (
-        <div className="bg-transparent min-h-screen py-24 font-sans">
+        <div className="bg-transparent min-h-screen py-10 md:py-16 font-sans">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <Link to="/cars" className="inline-flex items-center text-antigravity-dust hover:text-antigravity-cyan mb-8 transition-colors font-medium">
+                <Link to="/cars" className="inline-flex items-center text-antigravity-dust hover:text-antigravity-cyan mb-6 md:mb-8 transition-colors font-medium text-sm md:text-base">
                     <ArrowLeft size={20} className="mr-2" /> Back to Fleet
                 </Link>
 
                 <div className="bg-antigravity-nebula rounded-3xl shadow-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.1)] overflow-hidden grid grid-cols-1 lg:grid-cols-2 border border-white/5 animate-slide-up transition-all duration-500">
-                    <div className="p-6 lg:p-8 space-y-4">
+                    <div className="p-4 md:p-6 lg:p-8 space-y-4">
                         <div
-                            className="h-64 md:h-96 overflow-hidden rounded-2xl cursor-zoom-in group relative shadow-md border border-white/5"
+                            className="h-56 md:h-96 overflow-hidden rounded-2xl cursor-zoom-in group relative shadow-md border border-white/5"
                             onClick={handleImageClick}
                         >
                             <img
@@ -65,7 +65,7 @@ const CarDetails: React.FC = () => {
                             </div>
                         </div>
                         {uniqueImages.length > 1 && (
-                            <div className="grid grid-cols-4 gap-3">
+                            <div className="grid grid-cols-4 gap-2 md:gap-3">
                                 {uniqueImages.map((img, index) => (
                                     <button
                                         key={index}
@@ -79,31 +79,31 @@ const CarDetails: React.FC = () => {
                         )}
                     </div>
 
-                    <div className="p-6 lg:p-10 flex flex-col justify-center bg-antigravity-nebula">
+                    <div className="p-5 md:p-6 lg:p-10 flex flex-col justify-center bg-antigravity-nebula">
                         <div className="flex justify-between items-start mb-6">
                             <div>
-                                <h1 className="text-4xl font-bold text-antigravity-white mb-2">{car.name}</h1>
-                                <span className="inline-block bg-antigravity-deep text-antigravity-cyan px-3 py-1 rounded-full text-sm font-semibold tracking-wide uppercase border border-antigravity-cyan/20">
+                                <h1 className="text-2xl md:text-4xl font-bold text-antigravity-white mb-2">{car.name}</h1>
+                                <span className="inline-block bg-antigravity-deep text-antigravity-cyan px-2.5 py-1 rounded-full text-xs md:text-sm font-semibold tracking-wide uppercase border border-antigravity-cyan/20">
                                     {car.type}
                                 </span>
                             </div>
                             <div className="text-right">
-                                <p className="text-4xl font-bold text-antigravity-cyan">₹{car.pricePerKm}</p>
-                                <p className="text-sm text-antigravity-dust font-medium mt-1">per/km</p>
+                                <p className="text-2xl md:text-4xl font-bold text-antigravity-cyan">₹{car.pricePerKm}</p>
+                                <p className="text-xs md:text-sm text-antigravity-dust font-medium mt-1">per/km</p>
                             </div>
                         </div>
 
-                        <p className="text-antigravity-dust mb-8 text-lg leading-relaxed">{car.description}</p>
+                        <p className="text-antigravity-dust mb-6 md:mb-8 text-base md:text-lg leading-relaxed">{car.description}</p>
 
-                        <div className="mb-10 bg-antigravity-deep/50 rounded-2xl p-6 border border-white/5">
-                            <h3 className="font-bold text-antigravity-white mb-4 flex items-center gap-2">
-                                <span className="w-1.5 h-1.5 bg-antigravity-cyan rounded-full"></span>
+                        <div className="mb-6 md:mb-10 bg-antigravity-deep/50 rounded-2xl p-4 md:p-6 border border-white/5">
+                            <h3 className="font-bold text-antigravity-white mb-3 md:mb-4 flex items-center gap-2">
+                                <span className="w-1 md:w-1.5 h-1 md:h-1.5 bg-antigravity-cyan rounded-full"></span>
                                 Key Features
                             </h3>
-                            <ul className="grid grid-cols-2 gap-y-3 gap-x-4">
+                            <ul className="grid grid-cols-2 gap-y-2 md:gap-y-3 gap-x-3 md:gap-x-4">
                                 {car.features.map((feature, index) => (
-                                    <li key={index} className="flex items-center text-antigravity-dust font-medium">
-                                        <CheckCircle size={18} className="text-antigravity-violet mr-2.5 flex-shrink-0" />
+                                    <li key={index} className="flex items-center text-antigravity-dust font-medium text-sm md:text-base">
+                                        <CheckCircle size={16} className="text-antigravity-violet mr-2 flex-shrink-0 md:w-[18px] md:h-[18px]" />
                                         {feature}
                                     </li>
                                 ))}
@@ -114,9 +114,9 @@ const CarDetails: React.FC = () => {
                             <Button
                                 href={getWhatsAppLink(`Hi, I am interested in booking the ${car.name}. Please provide availability and details.`)}
                                 variant="primary"
-                                className="w-full justify-center text-lg py-4 shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]"
+                                className="w-full justify-center text-base md:text-lg py-3 md:py-4 shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]"
                             >
-                                <MessageCircle size={24} className="mr-2" /> Book via WhatsApp
+                                <MessageCircle size={20} className="mr-2 md:w-6 md:h-6" /> Book via WhatsApp
                             </Button>
                             <p className="text-xs text-center text-antigravity-dust/60">
                                 * Minimum km/day limits may apply. Contact for final quote.

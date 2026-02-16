@@ -6,17 +6,17 @@ import Button from '../components/Button';
 
 const Cars: React.FC = () => {
     return (
-        <div className="py-24 bg-transparent min-h-screen font-sans">
+        <div className="py-12 md:py-24 bg-transparent min-h-screen font-sans">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16 animate-fade-in">
-                    <span className="text-antigravity-cyan font-semibold tracking-wider uppercase text-sm">Our Fleet</span>
-                    <h1 className="text-4xl font-bold text-antigravity-white mt-2 mb-4">Premium Vehicles</h1>
-                    <p className="text-antigravity-dust max-w-2xl mx-auto text-lg leading-relaxed">
+                <div className="text-center mb-8 md:mb-16 animate-fade-in">
+                    <span className="text-antigravity-cyan font-semibold tracking-wider uppercase text-xs md:text-sm">Our Fleet</span>
+                    <h1 className="text-3xl md:text-4xl font-bold text-antigravity-white mt-2 mb-4">Premium Vehicles</h1>
+                    <p className="text-antigravity-dust max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
                         Choose from our wide range of well-maintained vehicles for a comfortable and safe journey.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10">
                     {cars.map((car, index) => (
                         <Link
                             to={`/cars/${car.id}`}
@@ -25,7 +25,7 @@ const Cars: React.FC = () => {
                             style={{ animationDelay: `${index * 0.1}s` }}
                         >
                             <div className="bg-antigravity-nebula rounded-3xl shadow-lg hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] transition-all duration-500 border border-white/5 overflow-hidden h-full flex flex-col hover:-translate-y-2">
-                                <div className="h-56 overflow-hidden relative">
+                                <div className="h-40 md:h-56 overflow-hidden relative">
                                     <div className="absolute inset-0 bg-gradient-to-t from-antigravity-deep/80 to-transparent opacity-80 z-10" />
                                     <img
                                         src={car.coverImage}
@@ -38,9 +38,9 @@ const Cars: React.FC = () => {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="p-8 flex-grow flex flex-col">
-                                    <div className="mb-4">
-                                        <h2 className="text-2xl font-bold text-antigravity-white mb-2 group-hover:text-antigravity-cyan transition-colors">{car.name}</h2>
+                                <div className="p-3 md:p-8 flex-grow flex flex-col">
+                                    <div className="mb-1.5 md:mb-4">
+                                        <h2 className="text-lg md:text-2xl font-bold text-antigravity-white mb-1 md:mb-2 group-hover:text-antigravity-cyan transition-colors line-clamp-1">{car.name}</h2>
 
                                         <div className="flex items-center gap-4 text-antigravity-dust text-sm">
                                             <div className="flex items-center gap-1.5">
@@ -54,13 +54,13 @@ const Cars: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    <div className="mt-auto pt-6 border-t border-white/5 flex justify-between items-center group/btn">
+                                    <div className="mt-auto pt-3 md:pt-6 border-t border-white/5 flex justify-between items-center group/btn text-sm md:text-base">
                                         <div>
-                                            <span className="text-2xl font-bold text-antigravity-cyan">₹{car.pricePerKm}</span>
-                                            <span className="text-antigravity-dust text-sm ml-1">/km</span>
+                                            <span className="text-lg md:text-2xl font-bold text-antigravity-cyan">₹{car.pricePerKm}</span>
+                                            <span className="text-antigravity-dust text-xs md:text-sm ml-1">/km</span>
                                         </div>
                                         <span className="flex items-center text-antigravity-dust font-semibold group-hover/btn:text-antigravity-cyan transition-colors">
-                                            Details <ArrowRight size={18} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                                            <span className="hidden md:inline">Details</span> <ArrowRight size={16} className="ml-1 md:ml-2 group-hover/btn:translate-x-1 transition-transform" />
                                         </span>
                                     </div>
                                 </div>
