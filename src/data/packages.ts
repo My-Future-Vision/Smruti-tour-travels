@@ -26,8 +26,12 @@ export const packages: Package[] = [
         image: getImagePath('/images/tours/daringbadi-2n3d.jpg'),
         images: [
             getImagePath('/images/tours/daringbadi-2n3d.jpg'),
-            'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Nature placeholder
-            'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Beach placeholder
+            getImagePath('/images/tours/daringbadi-gallery-1.jpg'),
+            getImagePath('/images/tours/daringbadi-gallery-2.jpg'),
+            getImagePath('/images/tours/daringbadi-gallery-3.jpg'),
+            getImagePath('/images/tours/daringbadi-gallery-4.jpg'),
+            getImagePath('/images/tours/daringbadi-gallery-5.jpg'),
+            getImagePath('/images/tours/daringbadi-gallery-6.jpg'),
         ],
         locations: ['Gopalpur', 'Chilika Lake', 'Daringbadi', 'Tara Tarini Temple'],
         inclusions: ['Lodging (1N Gopalpur, 1N Daringbadi)', 'Fooding', 'Sightseeing', 'Transport'],
@@ -87,8 +91,9 @@ export const packages: Package[] = [
         image: getImagePath('/images/tours/daringbadi-3n4d.jpg'),
         images: [
             getImagePath('/images/tours/daringbadi-3n4d.jpg'),
-            'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Nature placeholder
-            'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Landscape placeholder
+            getImagePath('/images/tours/daringbadi-gallery-4.jpg'),
+            getImagePath('/images/tours/daringbadi-gallery-5.jpg'),
+            getImagePath('/images/tours/daringbadi-gallery-6.jpg'),
         ],
         locations: ['Daringbadi', 'Gopalpur', 'Chilika Lake', 'Jirang Monastery'],
         inclusions: ['Lodging (2N Daringbadi, 1N Gopalpur)', 'Fooding', 'Sightseeing', 'Transport'],

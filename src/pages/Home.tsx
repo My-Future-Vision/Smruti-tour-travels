@@ -1,5 +1,4 @@
-import React from 'react';
-import { ChevronRight, Star, MapPin, Calendar, ArrowRight } from 'lucide-react';
+import { ChevronRight, Star, MapPin, Calendar, ArrowRight, Clock, ShieldCheck, Banknote } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cars } from '../data/cars';
 import { packages } from '../data/packages';
@@ -11,6 +10,7 @@ const Home: React.FC = () => {
         <div className="bg-transparent font-sans">
             {/* Hero Section */}
             <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+                {/* ... (hero content remains same) ... */}
                 {/* Background Image with Overlay */}
                 <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 hover:scale-105"
@@ -56,6 +56,43 @@ const Home: React.FC = () => {
                 <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-antigravity-cyan/50">
                     <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center p-1">
                         <div className="w-1 h-3 bg-current rounded-full" />
+                    </div>
+                </div>
+            </div>
+
+            {/* Features Section */}
+            <div className="py-20 bg-antigravity-deep relative border-b border-antigravity-white/5">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <span className="text-antigravity-cyan font-bold tracking-widest uppercase text-sm">Why Us</span>
+                        <h2 className="text-4xl md:text-5xl font-heading font-bold text-antigravity-white mt-4 mb-6">Why Choose Smruti Travels</h2>
+                        <p className="text-antigravity-dust max-w-2xl mx-auto text-xl font-light">
+                            We provide the best travel experience with well-maintained cars and professional drivers.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {[
+                            { title: 'Premium Fleet', desc: 'Wide range of luxury and comfort vehicles.', icon: Star },
+                            { title: 'Expert Drivers', desc: 'Experienced and professional chauffeurs.', icon: Star },
+                            { title: 'Custom Tours', desc: 'Tailored packages for your specific needs.', icon: MapPin },
+                            { title: '24/7 Support', desc: 'Always available to assist you with your travel needs.', icon: Clock },
+                            { title: 'Safety First', desc: 'Rigorous safety checks and sanitized vehicles.', icon: ShieldCheck },
+                            { title: 'Best Prices', desc: 'Competitive rates without compromising on quality.', icon: Banknote },
+                        ].map((feature, index) => (
+                            <div
+                                key={index}
+                                className="glass-card p-10 hover:border-antigravity-cyan/30 hover:-translate-y-2 group transition-all duration-300 relative overflow-hidden"
+                            >
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-antigravity-cyan/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none transition-opacity group-hover:opacity-100" />
+
+                                <div className="w-16 h-16 bg-antigravity-cyan/10 rounded-2xl flex items-center justify-center mb-8 text-antigravity-cyan group-hover:bg-antigravity-cyan group-hover:text-antigravity-deep transition-all duration-300 shadow-[0_0_20px_rgba(0,212,255,0.1)] group-hover:shadow-[0_0_30px_rgba(0,212,255,0.4)]">
+                                    <feature.icon size={32} />
+                                </div>
+                                <h3 className="text-2xl font-heading font-bold mb-4 text-antigravity-white">{feature.title}</h3>
+                                <p className="text-antigravity-dust leading-relaxed text-lg font-light">{feature.desc}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -170,40 +207,6 @@ const Home: React.FC = () => {
                         <Button to="/packages" variant="outline" size="lg" className="group">
                             View All Packages <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                         </Button>
-                    </div>
-                </div>
-            </div>
-
-            {/* Features Section */}
-            <div className="py-32 bg-antigravity-deep relative border-t border-antigravity-white/5">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20">
-                        <span className="text-antigravity-cyan font-bold tracking-widest uppercase text-sm">Why Us</span>
-                        <h2 className="text-4xl md:text-5xl font-heading font-bold text-antigravity-white mt-4 mb-6">Why Choose Smruti Travels</h2>
-                        <p className="text-antigravity-dust max-w-2xl mx-auto text-xl font-light">
-                            We provide the best travel experience with well-maintained cars and professional drivers.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            { title: 'Premium Fleet', desc: 'Wide range of luxury and comfort vehicles.', icon: Star },
-                            { title: 'Expert Drivers', desc: 'Experienced and professional chauffeurs.', icon: Star },
-                            { title: 'Custom Tours', desc: 'Tailored packages for your specific needs.', icon: MapPin },
-                        ].map((feature, index) => (
-                            <div
-                                key={index}
-                                className="glass-card p-10 hover:border-antigravity-cyan/30 hover:-translate-y-2 group transition-all duration-300 relative overflow-hidden"
-                            >
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-antigravity-cyan/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none transition-opacity group-hover:opacity-100" />
-
-                                <div className="w-16 h-16 bg-antigravity-cyan/10 rounded-2xl flex items-center justify-center mb-8 text-antigravity-cyan group-hover:bg-antigravity-cyan group-hover:text-antigravity-deep transition-all duration-300 shadow-[0_0_20px_rgba(0,212,255,0.1)] group-hover:shadow-[0_0_30px_rgba(0,212,255,0.4)]">
-                                    <feature.icon size={32} />
-                                </div>
-                                <h3 className="text-2xl font-heading font-bold mb-4 text-antigravity-white">{feature.title}</h3>
-                                <p className="text-antigravity-dust leading-relaxed text-lg font-light">{feature.desc}</p>
-                            </div>
-                        ))}
                     </div>
                 </div>
             </div>

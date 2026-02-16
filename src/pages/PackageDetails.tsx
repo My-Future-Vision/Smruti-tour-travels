@@ -50,43 +50,46 @@ const PackageDetails: React.FC = () => {
                 </Link>
 
                 <div className="bg-antigravity-nebula rounded-3xl shadow-lg border border-white/5 overflow-hidden animate-slide-up">
-                    <div className="relative">
-                        <div
-                            className="h-80 md:h-[500px] relative cursor-zoom-in group"
-                            onClick={handleImageClick}
-                        >
-                            <img
-                                src={selectedImage || pkg.image}
-                                alt={pkg.name}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300 z-10">
-                                <span className="text-antigravity-cyan bg-antigravity-deep/80 backdrop-blur-md border border-antigravity-cyan/30 px-6 py-2.5 rounded-full text-sm font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">View Gallery</span>
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-antigravity-deep via-antigravity-deep/60 to-transparent flex items-end pointer-events-none">
-                                <div className="p-8 md:p-12 text-white w-full">
-                                    <div className="flex flex-wrap items-center gap-4 mb-3">
-                                        <span className="flex items-center gap-2 bg-antigravity-violet/90 backdrop-blur-md px-3 py-1 rounded-full text-sm font-medium border border-white/10 shadow-md"><Calendar size={16} /> {pkg.duration}</span>
-                                        <span className="bg-antigravity-cyan text-antigravity-deep px-3 py-1 rounded-full text-sm font-bold shadow-[0_0_15px_rgba(34,211,238,0.4)]">{pkg.price}</span>
-                                    </div>
-                                    <h1 className="text-4xl md:text-5xl font-bold mb-2 tracking-tight text-white">{pkg.name}</h1>
+                    <div className="grid grid-cols-1 lg:grid-cols-2">
+                        <div className="p-6 lg:p-8 space-y-4">
+                            <div
+                                className="h-64 md:h-96 overflow-hidden rounded-2xl cursor-zoom-in group relative shadow-md border border-white/5"
+                                onClick={handleImageClick}
+                            >
+                                <img
+                                    src={selectedImage || pkg.image}
+                                    alt={pkg.name}
+                                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300">
+                                    <span className="text-antigravity-cyan bg-antigravity-deep/80 backdrop-blur-md border border-antigravity-cyan/30 px-6 py-2.5 rounded-full text-sm font-semibold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">View Gallery</span>
                                 </div>
                             </div>
+                            {uniqueImages.length > 1 && (
+                                <div className="grid grid-cols-4 gap-3">
+                                    {uniqueImages.map((img, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => setSelectedImage(img)}
+                                            className={`h-20 lg:h-24 rounded-xl overflow-hidden border-2 transition-all duration-300 ${selectedImage === img ? 'border-antigravity-cyan ring-2 ring-antigravity-cyan/20 scale-95' : 'border-transparent hover:border-white/20'}`}
+                                        >
+                                            <img src={img} alt={`${pkg.name} view ${index + 1}`} className="w-full h-full object-cover" />
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
                         </div>
 
-                        {uniqueImages.length > 1 && (
-                            <div className="absolute bottom-8 right-8 z-20 flex gap-3">
-                                {uniqueImages.map((img, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={(e) => { e.stopPropagation(); setSelectedImage(img); }}
-                                        className={`w-20 h-14 rounded-xl overflow-hidden border-2 transition-all duration-300 shadow-lg ${selectedImage === img ? 'border-antigravity-cyan ring-2 ring-antigravity-cyan/40 scale-110' : 'border-white/20 hover:border-white/50'}`}
-                                    >
-                                        <img src={img} alt={`${pkg.name} view ${index + 1}`} className="w-full h-full object-cover" />
-                                    </button>
-                                ))}
+                        <div className="p-6 lg:p-10 flex flex-col justify-center bg-antigravity-nebula relative">
+                            <div className="absolute inset-0 bg-gradient-to-br from-antigravity-deep/50 to-transparent pointer-events-none"></div>
+                            <div className="relative z-10">
+                                <div className="flex flex-wrap items-center gap-4 mb-3">
+                                    <span className="flex items-center gap-2 bg-antigravity-violet/90 backdrop-blur-md px-3 py-1 rounded-full text-sm font-medium border border-white/10 shadow-md text-white"><Calendar size={16} /> {pkg.duration}</span>
+                                    <span className="bg-antigravity-cyan text-antigravity-deep px-3 py-1 rounded-full text-sm font-bold shadow-[0_0_15px_rgba(34,211,238,0.4)]">{pkg.price}</span>
+                                </div>
+                                <h1 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight text-white">{pkg.name}</h1>
                             </div>
-                        )}
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 md:p-12">

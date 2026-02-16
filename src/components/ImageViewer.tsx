@@ -35,13 +35,49 @@ const ImageViewer: React.FC<ImageViewerProps> = ({ images, initialIndex, isOpen,
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [handleKeyDown]);
 
+    // Touch event handling for swipe
+    const [touchStart, setTouchStart] = React.useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = React.useState<number | null>(null);
+
+    // Minimum swipe distance (in px)
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null); // Reset touch end
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            handleNext();
+        } else if (isRightSwipe) {
+            handlePrev();
+        }
+    };
+
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center backdrop-blur-sm">
+        <div
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center backdrop-blur-sm touch-none"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+        >
             <button
                 onClick={onClose}
-                className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors p-2"
+                className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors p-3 z-50 bg-black/20 rounded-full"
+                aria-label="Close gallery"
             >
                 <X size={32} />
             </button>
@@ -50,15 +86,17 @@ const ImageViewer: React.FC<ImageViewerProps> = ({ images, initialIndex, isOpen,
                 <>
                     <button
                         onClick={(e) => { e.stopPropagation(); handlePrev(); }}
-                        className="absolute left-4 text-white/50 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
+                        className="absolute left-2 md:left-4 text-white/50 hover:text-white transition-colors p-3 hover:bg-white/10 rounded-full z-50 bg-black/20 md:bg-transparent"
+                        aria-label="Previous image"
                     >
-                        <ChevronLeft size={48} />
+                        <ChevronLeft size={40} className="md:w-12 md:h-12" />
                     </button>
                     <button
                         onClick={(e) => { e.stopPropagation(); handleNext(); }}
-                        className="absolute right-4 text-white/50 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
+                        className="absolute right-2 md:right-4 text-white/50 hover:text-white transition-colors p-3 hover:bg-white/10 rounded-full z-50 bg-black/20 md:bg-transparent"
+                        aria-label="Next image"
                     >
-                        <ChevronRight size={48} />
+                        <ChevronRight size={40} className="md:w-12 md:h-12" />
                     </button>
                 </>
             )}

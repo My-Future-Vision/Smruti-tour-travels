@@ -1,12 +1,13 @@
-/**
- * Get the correct image path for both development and production environments
- * @param imagePath - The image path relative to public folder (e.g., '/images/cars/car1.jpg')
- * @returns - The complete path including base URL
- */
 export function getImagePath(imagePath: string): string {
-  // Remove leading slash if present to avoid double slashes
+  // If the path is already a full URL, return it
+  if (imagePath.startsWith('http')) {
+    return imagePath;
+  }
+
+  // Remove leading slash if present to avoid double slashes with BASE_URL
   const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
-  
-  // In development, BASE_URL is '/', in production it's '/Smruti-tour-travels/'
+
+  // Use import.meta.env.BASE_URL which Vite provides
+  // It will be '/' in dev and '/Smruti-tour-travels/' in prod (if set in vite.config.ts)
   return `${import.meta.env.BASE_URL}${cleanPath}`;
 }
