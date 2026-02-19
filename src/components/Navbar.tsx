@@ -24,6 +24,7 @@ const Navbar: React.FC = () => {
         { name: 'Home', path: '/' },
         { name: 'Cars', path: '/cars' },
         { name: 'Packages', path: '/packages' },
+        { name: 'Testimonials', path: '/testimonials' },
         { name: 'Contact', path: '/contact' },
     ];
 
@@ -75,7 +76,7 @@ const Navbar: React.FC = () => {
                         <div className="ml-4">
                             <Button
                                 href={getWhatsAppLink('Hi, I would like to book a car.')}
-                                variant={isHome && !scrolled && !isOpen ? "glass" : "primary"}
+                                variant="primary"
                                 size="sm"
                                 className="gap-2"
                             >

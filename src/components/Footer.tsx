@@ -25,6 +25,7 @@ const Footer: React.FC = () => {
                             <li><Link to="/" className="text-antigravity-dust hover:text-antigravity-cyan transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-antigravity-cyan transition-colors"></span>Home</Link></li>
                             <li><Link to="/cars" className="text-antigravity-dust hover:text-antigravity-cyan transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-antigravity-cyan transition-colors"></span>Car Rentals</Link></li>
                             <li><Link to="/packages" className="text-antigravity-dust hover:text-antigravity-cyan transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-antigravity-cyan transition-colors"></span>Tour Packages</Link></li>
+                            <li><Link to="/testimonials" className="text-antigravity-dust hover:text-antigravity-cyan transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-antigravity-cyan transition-colors"></span>Testimonials</Link></li>
                             <li><Link to="/contact" className="text-antigravity-dust hover:text-antigravity-cyan transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-antigravity-cyan transition-colors"></span>Contact Us</Link></li>
                         </ul>
                     </div>

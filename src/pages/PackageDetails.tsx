@@ -43,17 +43,17 @@ const PackageDetails: React.FC = () => {
     };
 
     return (
-        <div className="bg-transparent min-h-screen py-24 font-sans">
+        <div className="bg-transparent min-h-screen py-10 md:py-16 font-sans">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <Link to="/packages" className="inline-flex items-center text-antigravity-dust hover:text-antigravity-cyan mb-8 transition-colors font-medium">
+                <Link to="/packages" className="inline-flex items-center text-antigravity-dust hover:text-antigravity-cyan mb-6 md:mb-8 transition-colors font-medium text-sm md:text-base">
                     <ArrowLeft size={20} className="mr-2" /> Back to Packages
                 </Link>
 
                 <div className="bg-antigravity-nebula rounded-3xl shadow-lg border border-white/5 overflow-hidden animate-slide-up">
                     <div className="grid grid-cols-1 lg:grid-cols-2">
-                        <div className="p-6 lg:p-8 space-y-4">
+                        <div className="p-4 md:p-6 lg:p-8 space-y-4">
                             <div
-                                className="h-64 md:h-96 overflow-hidden rounded-2xl cursor-zoom-in group relative shadow-md border border-white/5"
+                                className="h-56 md:h-96 overflow-hidden rounded-2xl cursor-zoom-in group relative shadow-md border border-white/5"
                                 onClick={handleImageClick}
                             >
                                 <img
@@ -66,7 +66,7 @@ const PackageDetails: React.FC = () => {
                                 </div>
                             </div>
                             {uniqueImages.length > 1 && (
-                                <div className="grid grid-cols-4 gap-3">
+                                <div className="grid grid-cols-4 gap-2 md:gap-3">
                                     {uniqueImages.map((img, index) => (
                                         <button
                                             key={index}
@@ -80,59 +80,65 @@ const PackageDetails: React.FC = () => {
                             )}
                         </div>
 
-                        <div className="p-6 lg:p-10 flex flex-col justify-center bg-antigravity-nebula relative">
+                        <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center bg-antigravity-nebula relative">
                             <div className="absolute inset-0 bg-gradient-to-br from-antigravity-deep/50 to-transparent pointer-events-none"></div>
                             <div className="relative z-10">
                                 <div className="flex flex-wrap items-center gap-4 mb-3">
-                                    <span className="flex items-center gap-2 bg-antigravity-violet/90 backdrop-blur-md px-3 py-1 rounded-full text-sm font-medium border border-white/10 shadow-md text-white"><Calendar size={16} /> {pkg.duration}</span>
-                                    <span className="bg-antigravity-cyan text-antigravity-deep px-3 py-1 rounded-full text-sm font-bold shadow-[0_0_15px_rgba(34,211,238,0.4)]">{pkg.price}</span>
+                                    <span className="flex items-center gap-2 bg-antigravity-violet/90 backdrop-blur-md px-3 py-1 rounded-full text-xs md:text-sm font-medium border border-white/10 shadow-md text-white"><Calendar size={14} className="md:w-4 md:h-4" /> {pkg.duration}</span>
+                                    <span className="bg-antigravity-cyan text-antigravity-deep px-3 py-1 rounded-full text-xs md:text-sm font-bold shadow-[0_0_15px_rgba(34,211,238,0.4)]">{pkg.price}</span>
                                 </div>
-                                <h1 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight text-white">{pkg.name}</h1>
+                                <h1 className="text-2xl md:text-5xl font-bold mb-4 md:mb-6 tracking-tight text-white leading-tight">{pkg.name}</h1>
                             </div>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 md:p-12">
-                        <div className="md:col-span-2 space-y-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-5 md:p-12">
+                        <div className="md:col-span-2 space-y-8 md:space-y-10">
                             <div>
-                                <h2 className="text-2xl font-bold mb-4 text-antigravity-white flex items-center gap-3">
-                                    <span className="w-1.5 h-8 bg-antigravity-cyan rounded-full"></span>Overview
+                                <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-antigravity-white flex items-center gap-2 md:gap-3">
+                                    <span className="w-1 md:w-1.5 h-6 md:h-8 bg-antigravity-cyan rounded-full"></span>Overview
                                 </h2>
-                                <p className="text-antigravity-dust text-lg leading-relaxed">{pkg.description}</p>
+                                <p className="text-antigravity-dust text-base md:text-lg leading-relaxed">{pkg.description}</p>
                             </div>
 
                             <div>
-                                <h3 className="text-xl font-bold mb-6 text-antigravity-white">Inclusions</h3>
+                                <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6 text-antigravity-white">Inclusions</h3>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     {pkg.inclusions.map((inc, idx) => (
-                                        <div key={idx} className="flex items-center p-4 bg-antigravity-deep rounded-xl border border-white/5 hover:border-antigravity-cyan/20 transition-colors">
-                                            <div className="w-8 h-8 rounded-full bg-antigravity-green/10 flex items-center justify-center mr-4 flex-shrink-0">
-                                                <Check size={16} className="text-antigravity-green" />
+                                        <div key={idx} className="flex items-center p-3 md:p-4 bg-antigravity-deep rounded-xl border border-white/5 hover:border-antigravity-cyan/20 transition-colors">
+                                            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-antigravity-green/10 flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
+                                                <Check size={14} className="md:w-4 md:h-4 text-antigravity-green" />
                                             </div>
-                                            <span className="font-medium text-antigravity-white/90">{inc}</span>
+                                            <span className="font-medium text-sm md:text-base text-antigravity-white/90">{inc}</span>
                                         </div>
                                     ))}
                                 </div>
                             </div>
 
                             {pkg.itinerary && (
-                                <div className="border-t border-white/5 pt-10">
-                                    <h2 className="text-2xl font-bold mb-8 text-antigravity-white flex items-center gap-3">
-                                        <span className="w-1.5 h-8 bg-antigravity-cyan rounded-full"></span>Itinerary
+                                <div className="border-t border-white/5 pt-8 md:pt-10">
+                                    <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-antigravity-white flex items-center gap-2 md:gap-3">
+                                        <span className="w-1 md:w-1.5 h-6 md:h-8 bg-antigravity-cyan rounded-full"></span>Itinerary
                                     </h2>
                                     <div className="space-y-0">
                                         {pkg.itinerary.map((item, index) => (
-                                            <div key={index} className="relative pl-8 sm:pl-32 py-4 group">
+                                            <div key={index} className="relative pl-0 sm:pl-32 py-4 group">
                                                 <div className="flex flex-col sm:flex-row items-start mb-1 group-last:mb-0">
-                                                    <div className="flex-shrink-0 w-24 text-sm font-bold text-antigravity-cyan mb-1 sm:mb-0 sm:absolute sm:left-0 sm:top-5 sm:text-right sm:pr-8">
+                                                    <div className="sm:hidden flex items-center mb-3">
+                                                        <div className="w-6 h-6 rounded-full border-4 border-antigravity-deep bg-antigravity-cyan shadow-[0_0_10px_rgba(34,211,238,0.5)] z-10 mr-3"></div>
+                                                        <span className="text-antigravity-cyan font-bold text-sm tracking-wide">{item.day}</span>
+                                                    </div>
+
+                                                    <div className="hidden sm:block flex-shrink-0 w-24 text-sm font-bold text-antigravity-cyan mb-1 sm:mb-0 sm:absolute sm:left-0 sm:top-5 sm:text-right sm:pr-8">
                                                         {item.day}
                                                     </div>
 
-                                                    <div className="absolute left-3.5 sm:left-[6.5rem] top-0 bottom-0 w-0.5 bg-white/5 group-last:hidden"></div>
-                                                    <div className="absolute left-[0.45rem] sm:left-[6.1rem] top-5 w-6 h-6 rounded-full border-4 border-antigravity-deep bg-antigravity-cyan shadow-[0_0_10px_rgba(34,211,238,0.5)] z-10 transition-transform group-hover:scale-110"></div>
+                                                    <div className="absolute left-3 bottom-0 top-3 w-0.5 bg-white/5 group-last:hidden sm:hidden"></div>
+                                                    <div className="hidden sm:block absolute left-[0.45rem] sm:left-[6.1rem] top-0 bottom-0 w-0.5 bg-white/5 group-last:hidden"></div>
+                                                    <div className="hidden sm:block absolute left-[0.45rem] sm:left-[6.1rem] top-5 w-6 h-6 rounded-full border-4 border-antigravity-deep bg-antigravity-cyan shadow-[0_0_10px_rgba(34,211,238,0.5)] z-10 transition-transform group-hover:scale-110"></div>
 
-                                                    <div className="flex-grow bg-antigravity-deep rounded-2xl p-6 border border-white/5 hover:border-antigravity-cyan/20 hover:shadow-lg transition-all">
-                                                        <h3 className="text-lg font-bold text-antigravity-white mb-3">{item.title}</h3>
+                                                    <div className="w-full flex-grow bg-antigravity-deep rounded-2xl p-5 md:p-6 border border-white/5 hover:border-antigravity-cyan/20 hover:shadow-lg transition-all ml-3 sm:ml-0">
+                                                        <h3 className="text-base md:text-lg font-bold text-antigravity-white mb-3">{item.title}</h3>
                                                         <ul className="space-y-2">
                                                             {item.places.map((place, pIndex) => (
                                                                 <li key={pIndex} className="text-antigravity-dust flex items-start text-sm">

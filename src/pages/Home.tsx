@@ -4,6 +4,7 @@ import { cars } from '../data/cars';
 import { packages } from '../data/packages';
 import { getWhatsAppLink } from '../utils/whatsapp';
 import Button from '../components/Button';
+import TestimonialsSection from '../components/TestimonialsSection';
 
 const Home: React.FC = () => {
     return (
@@ -22,14 +23,14 @@ const Home: React.FC = () => {
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center animate-fade-in">
-                    <span className="inline-block py-1.5 px-4 rounded-full bg-antigravity-cyan/10 backdrop-blur-md border border-antigravity-cyan/20 text-antigravity-cyan text-sm font-bold tracking-widest uppercase mb-8 animate-slide-up shadow-glow">
+                    <span className="inline-block py-1.5 px-4 rounded-full bg-antigravity-cyan/10 backdrop-blur-md border border-antigravity-cyan/20 text-antigravity-cyan text-xs md:text-sm font-bold tracking-widest uppercase mb-4 md:mb-8 animate-slide-up shadow-glow">
                         Premium Travel Experience
                     </span>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-8 text-antigravity-white tracking-tight leading-[1.1] animate-slide-up drop-shadow-2xl" style={{ animationDelay: '0.1s' }}>
+                    <h1 className="text-4xl md:text-7xl lg:text-8xl font-heading font-bold mb-6 md:mb-8 text-antigravity-white tracking-tight leading-[1.1] animate-slide-up drop-shadow-2xl" style={{ animationDelay: '0.1s' }}>
                         Your Ride, <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-antigravity-cyan via-blue-500 to-antigravity-violet animate-pulse-slow">Zero Gravity</span>
                     </h1>
-                    <p className="text-lg md:text-2xl mb-12 text-antigravity-dust max-w-2xl mx-auto leading-relaxed animate-slide-up font-light" style={{ animationDelay: '0.2s' }}>
+                    <p className="text-base md:text-2xl mb-8 md:mb-12 text-antigravity-dust max-w-2xl mx-auto leading-relaxed animate-slide-up font-light" style={{ animationDelay: '0.2s' }}>
                         Experience the future of travel with our premium fleet and curated tour packages.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
@@ -61,7 +62,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Features Section */}
-            <div className="py-20 bg-antigravity-deep relative border-b border-antigravity-white/5">
+            <div className="py-12 md:py-20 bg-antigravity-deep relative border-b border-antigravity-white/5">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <span className="text-antigravity-cyan font-bold tracking-widest uppercase text-sm">Why Us</span>
@@ -71,7 +72,7 @@ const Home: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
                         {[
                             { title: 'Premium Fleet', desc: 'Wide range of luxury and comfort vehicles.', icon: Star },
                             { title: 'Expert Drivers', desc: 'Experienced and professional chauffeurs.', icon: Star },
@@ -82,15 +83,15 @@ const Home: React.FC = () => {
                         ].map((feature, index) => (
                             <div
                                 key={index}
-                                className="glass-card p-10 hover:border-antigravity-cyan/30 hover:-translate-y-2 group transition-all duration-300 relative overflow-hidden"
+                                className="glass-card p-4 md:p-10 hover:border-antigravity-cyan/30 hover:-translate-y-2 group transition-all duration-300 relative overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-antigravity-cyan/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none transition-opacity group-hover:opacity-100" />
 
-                                <div className="w-16 h-16 bg-antigravity-cyan/10 rounded-2xl flex items-center justify-center mb-8 text-antigravity-cyan group-hover:bg-antigravity-cyan group-hover:text-antigravity-deep transition-all duration-300 shadow-[0_0_20px_rgba(0,212,255,0.1)] group-hover:shadow-[0_0_30px_rgba(0,212,255,0.4)]">
-                                    <feature.icon size={32} />
+                                <div className="w-12 h-12 md:w-16 md:h-16 bg-antigravity-cyan/10 rounded-2xl flex items-center justify-center mb-4 md:mb-8 text-antigravity-cyan group-hover:bg-antigravity-cyan group-hover:text-antigravity-deep transition-all duration-300 shadow-[0_0_20px_rgba(0,212,255,0.1)] group-hover:shadow-[0_0_30px_rgba(0,212,255,0.4)]">
+                                    <feature.icon className="w-6 h-6 md:w-8 md:h-8" />
                                 </div>
-                                <h3 className="text-2xl font-heading font-bold mb-4 text-antigravity-white">{feature.title}</h3>
-                                <p className="text-antigravity-dust leading-relaxed text-lg font-light">{feature.desc}</p>
+                                <h3 className="text-lg md:text-2xl font-heading font-bold mb-2 md:mb-4 text-antigravity-white">{feature.title}</h3>
+                                <p className="text-antigravity-dust leading-relaxed text-xs md:text-lg font-light line-clamp-3 md:line-clamp-none">{feature.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -98,7 +99,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Featured Cars Section */}
-            <div className="py-32 bg-antigravity-deep relative">
+            <div className="py-16 md:py-32 bg-antigravity-deep relative">
                 {/* Background Grid Pattern */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
@@ -111,11 +112,11 @@ const Home: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
                         {cars.slice(0, 3).map((car) => (
                             <Link key={car.id} to={`/cars/${car.id}`} className="group block h-full">
                                 <div className="glass-card overflow-hidden h-full flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,212,255,0.1)] hover:border-antigravity-cyan/30">
-                                    <div className="h-64 overflow-hidden relative">
+                                    <div className="h-40 md:h-64 overflow-hidden relative">
                                         <div className="absolute inset-0 bg-gradient-to-t from-antigravity-deep via-transparent to-transparent opacity-60 z-10" />
                                         <img
                                             src={car.coverImage}
@@ -124,20 +125,20 @@ const Home: React.FC = () => {
                                         />
                                         <div className="absolute top-4 right-4 z-20">
                                             <span className="bg-antigravity-deep/80 backdrop-blur-md text-antigravity-cyan text-xs font-bold px-3 py-1.5 rounded-full border border-antigravity-cyan/20 uppercase tracking-wide">
-                                                Premium
+                                                {car.type}
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="p-8 flex-grow flex flex-col justify-between relative">
+                                    <div className="p-4 md:p-8 flex-grow flex flex-col justify-between relative">
                                         <div className="absolute top-0 right-0 w-32 h-32 bg-antigravity-cyan/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none transition-opacity group-hover:opacity-100" />
 
                                         <div>
-                                            <h3 className="text-2xl font-heading font-bold mb-3 text-antigravity-white group-hover:text-antigravity-cyan transition-colors">{car.name}</h3>
-                                            <p className="text-antigravity-dust mb-6 line-clamp-2 leading-relaxed">{car.description}</p>
+                                            <h3 className="text-lg md:text-2xl font-heading font-bold mb-2 md:mb-3 text-antigravity-white group-hover:text-antigravity-cyan transition-colors line-clamp-1">{car.name}</h3>
+                                            <p className="text-antigravity-dust mb-4 md:mb-6 line-clamp-2 leading-relaxed text-xs md:text-base">{car.description}</p>
                                         </div>
-                                        <div className="flex items-center text-antigravity-cyan font-semibold mt-auto group/btn">
+                                        <div className="flex items-center text-antigravity-cyan font-semibold mt-auto group/btn text-sm md:text-base">
                                             <span className="border-b border-transparent group-hover/btn:border-antigravity-cyan transition-all">View Details</span>
-                                            <ArrowRight size={18} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                                            <ArrowRight size={16} className="ml-1 md:ml-2 group-hover/btn:translate-x-1 transition-transform" />
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +155,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Popular Packages Section */}
-            <div className="py-32 bg-antigravity-deep relative">
+            <div className="py-16 md:py-32 bg-antigravity-deep relative">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -168,11 +169,11 @@ const Home: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10">
                         {packages.slice(0, 3).map((pkg) => (
                             <Link key={pkg.id} to={`/packages/${pkg.id}`} className="group block h-full">
                                 <div className="glass-card overflow-hidden h-full flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(139,92,246,0.2)] hover:border-antigravity-violet/30">
-                                    <div className="h-80 overflow-hidden relative">
+                                    <div className="h-48 md:h-80 overflow-hidden relative">
                                         <div className="absolute inset-0 bg-gradient-to-t from-antigravity-deep via-transparent to-transparent z-10" />
                                         <img
                                             src={pkg.image}
@@ -180,22 +181,22 @@ const Home: React.FC = () => {
                                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                                         />
                                         <div className="absolute bottom-6 left-6 z-20 text-white w-full pr-6">
-                                            <div className="flex items-center gap-2 mb-3">
-                                                <span className="bg-antigravity-violet text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md flex items-center gap-1 shadow-lg border border-antigravity-violet/20">
-                                                    <Calendar size={12} /> {pkg.duration}
+                                            <div className="flex items-center gap-2 mb-2 md:mb-3">
+                                                <span className="bg-antigravity-violet text-white text-[10px] md:text-xs font-bold px-2 py-0.5 md:px-3 md:py-1 rounded-full backdrop-blur-md flex items-center gap-1 shadow-lg border border-antigravity-violet/20">
+                                                    <Calendar size={10} className="md:w-3 md:h-3" /> {pkg.duration}
                                                 </span>
                                             </div>
-                                            <h3 className="text-2xl font-heading font-bold mb-1 leading-tight text-white drop-shadow-md">{pkg.name}</h3>
-                                            <p className="text-antigravity-cyan font-bold text-lg drop-shadow-sm">{pkg.price}</p>
+                                            <h3 className="text-lg md:text-2xl font-heading font-bold mb-1 leading-tight text-white drop-shadow-md line-clamp-1">{pkg.name}</h3>
+                                            <p className="text-antigravity-cyan font-bold text-base md:text-lg drop-shadow-sm">{pkg.price}</p>
                                         </div>
                                     </div>
-                                    <div className="p-8 flex-grow flex flex-col justify-between">
+                                    <div className="p-4 md:p-8 flex-grow flex flex-col justify-between">
                                         <div>
-                                            <p className="text-antigravity-dust mb-6 line-clamp-3 leading-relaxed">{pkg.description}</p>
+                                            <p className="text-antigravity-dust mb-4 md:mb-6 line-clamp-2 md:line-clamp-3 leading-relaxed text-xs md:text-base">{pkg.description}</p>
                                         </div>
-                                        <div className="flex items-center text-antigravity-violet font-semibold mt-auto pt-6 border-t border-white/5 group/btn">
+                                        <div className="flex items-center text-antigravity-violet font-semibold mt-auto pt-4 md:pt-6 border-t border-white/5 group/btn text-sm md:text-base">
                                             <span className="border-b border-transparent group-hover/btn:border-antigravity-violet transition-all">View Itinerary</span>
-                                            <ArrowRight size={18} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                                            <ArrowRight size={16} className="ml-1 md:ml-2 group-hover/btn:translate-x-1 transition-transform" />
                                         </div>
                                     </div>
                                 </div>
@@ -210,6 +211,8 @@ const Home: React.FC = () => {
                     </div>
                 </div>
             </div>
+            {/* Testimonials Section */}
+            <TestimonialsSection />
         </div>
     );
 };

@@ -7,6 +7,7 @@ import CarDetails from './pages/CarDetails';
 import Packages from './pages/Packages';
 import PackageDetails from './pages/PackageDetails';
 import Contact from './pages/Contact';
+import Testimonials from './pages/Testimonials';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/cars/:id" element={<CarDetails />} />
           <Route path="/packages" element={<Packages />} />
           <Route path="/packages/:id" element={<PackageDetails />} />
+          <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>
